@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student List Form</title>
+    <!--text that goes on the tab-->
+  </head>
+  <body>
+    <h1>Student List</h1>
+    <div id="table_div">
+      <!--div id format = name_type (div for a table -> table_div)-->
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID Number</th>
+            <th>Year in School</th>
+            <th>Major</th>
+            <th>GPA</th>
+            <th>Date Created</th>
+            <th>Date Modified</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!--uses specific django "syntax" that will be interpreted when the template is loaded-->
+          {% for student in object_list %}
+          <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.firstname }}</td>
+            <td>{{ student.lastname }}</td>
+            <td>{{ student.idnumber }}</td>
+            <td>{{ student.schoolyear }}</td>
+            <td>{{ student.major }}</td>
+            <td>{{ student.gpa }}</td>
+            <td>{{ student.datecreated }}</td>
+            <td>{{ student.datemodified }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
